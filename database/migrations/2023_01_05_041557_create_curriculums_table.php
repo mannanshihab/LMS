@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curriculams', function (Blueprint $table) {
+        Schema::create('curriculums', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('number');
+            $table->unsignedBigInteger('curriculum_id');
             $table->unsignedBigInteger('number');
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->onDelete('cascade');
+            $table->foreign('curriculum_id')->references('id')->on('curriculums')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curriculams');
+        Schema::dropIfExists('curriculums');
     }
 };

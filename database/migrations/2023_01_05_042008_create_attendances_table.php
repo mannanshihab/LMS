@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('curriculum_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
-            $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('curriculum_id')->references('id')->on('curriculums')->onDelete('cascade');
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
