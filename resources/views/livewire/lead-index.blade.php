@@ -29,4 +29,7 @@
         </tr>
         @endforeach
     </table>
+    <div class="mt-5">
+    {{ $leads->links() }}
+    </div>
 </div>
