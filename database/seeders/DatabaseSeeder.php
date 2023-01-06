@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
 
+        $this->create_user_with_role('Leads', 'Leads', 'leads@lms.test');
+
         //Create Lead Factory
         Lead::factory(100)->create();
 
