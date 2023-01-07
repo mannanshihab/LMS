@@ -19,6 +19,8 @@ class LeadIndex extends Component
     }
 
     public function leadDelete($id) {
+        permission_cheak('lead-permission');
+        
         $lead = Lead::findOrFail($id);
         $lead->delete();
 
