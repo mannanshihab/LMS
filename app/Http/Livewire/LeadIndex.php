@@ -25,5 +25,6 @@ class LeadIndex extends Component
         $lead->delete();
 
         flash()->addSuccess('Lead deleted successfully');
+        
     }
 }
