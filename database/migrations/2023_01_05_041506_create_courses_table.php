@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::create('courses_user', function (Blueprint $table) {
+        Schema::create('course_student', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('user_id');

@@ -23,6 +23,8 @@ class Admission extends Component
 
     public $selectedCourse;
 
+    public $payment;
+
 
     public function render()
     {   
@@ -36,9 +38,11 @@ class Admission extends Component
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->get();
     }
+
     public function courseSelected(){
-        $this->selectedCourse = Course::find($this->course_id);
+        $this->selectedCourse = Course::findOrFail($this->course_id);
     }
+
     public function admit(){
         $lead = Lead::find($this->lead_id);
         $user = User::create([
@@ -60,6 +64,15 @@ class Admission extends Component
             'quantity' => 1,
             'invoice_id' => $invoice->id,
         ]);
+
+        $this->selectedCourse->students()->attach($user->id);
+
+        if(!empty($this->payment)) {
+            Payment::create([
+                'amount' => $this->payment,
+                'invoice_id' => $invoice->id,
+            ]);
+        }
 
         $this->selectedCourse = null;
         $this->course_id = null;
