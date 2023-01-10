@@ -1,11 +1,12 @@
 <form wire:submit.prevent="formSubmit">
-    <div class="mb-4">
-        <label for="name" class="lms-label">Name</label>
-        <input wire:model.lazy="name" id="name" type="text" class="lms-input">
-
-        @error('name')
-        <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
-        @enderror
+    <div class="mb-6">
+        @include('components.form-field', [
+            'name' => 'name',
+            'label' => 'Name',
+            'type' => 'text',
+            'placeholder' => 'Enter name',
+            'required' => 'required'
+        ])
     </div>
 
     <h3 class="font-semibold">Permission</h3>

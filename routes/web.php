@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice-index');
     
     Route::get('/invoices/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
+
+    Route::resource('course', CourseController::class);
     
 });
 
