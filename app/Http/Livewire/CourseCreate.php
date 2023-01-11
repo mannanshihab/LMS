@@ -1,7 +1,14 @@
 <?php
 
 namespace App\Http\Livewire;
+
 use App\Models\Course;
+use App\Models\Curriculum;
+
+use Carbon\Carbon;
+use DateInterval;
+use DatePeriod;
+use DateTime;
 use Livewire\Component;
 
 class CourseCreate extends Component
@@ -10,6 +17,10 @@ class CourseCreate extends Component
     public $description;
     public $price;
     public $selectedDays = [];
+   
+    public $time;
+    public $end_date;
+   
 
     public $days = [
         'Sunday',
@@ -26,23 +37,22 @@ class CourseCreate extends Component
         'price' => 'required',
     ];
 
-    public function render()
-    {   $course = Course::all();
-        return view('livewire.course-create', [
-            'course' => $course
-        ]);
+    public function render(){   
+    
+        return view('livewire.course-create');
+  
     }
-    public function formSubmit(){
+    public function formSubmit() {
         $this->validate();
-
         $course = Course::create([
             'name' => $this->name,
             'description' => $this->description,
             'price' => $this->price,
-            'user_id' => auth()->user()->id            
+            // 'user_id' => Auth::user()->id
         ]);
+        
         flash()->addSuccess('Course created successfully');
-        return redirect()->route('course.index');
 
+        return redirect()->route('course.index');
     }
 }

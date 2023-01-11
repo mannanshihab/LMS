@@ -20,7 +20,7 @@
                 <a href="{{route('course.show', $course->id)}}" class="px-4">
                     @include('components.icons.view')
                 </a>
-                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="courseDelete({$course->id}})">
+                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="courseDelete({{$course->id}})">
                     <button type="submit">
                         @include('components.icons.trash')
                     </button>
