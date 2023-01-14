@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -20,6 +21,12 @@ class CourseController extends Controller
         return view('course.edit', [
             'course_id' => $id
         ]);
+    }
+
+    public function show($id)
+    {
+
+        return view('course.show', ['id' => $id]);
     }
 
 }

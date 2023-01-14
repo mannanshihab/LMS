@@ -8,13 +8,38 @@ use Illuminate\Database\Eloquent\Model;
 class Curriculum extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'week_day',
+        'class_time',
+        'end_date',
+        'course_id'
+    ];
+
     protected $table = 'curriculums';
 
-    public function homeworks(){
-        return $this->hasMany(Homework::class); 
+    use HasFactory;
+
+    public function homeworks()
+    {
+        return $this->hasMany(Homework::class);
     }
 
-    public function attendance(){
-        return $this->hasMany(Attendance::class); 
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function notes() {
+        return $this->belongsToMany(Note::class, 'curriculum_note');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function presentStudents() {
+        return Attendance::where('curriculum_id', $this->id)->count();
     }
 }

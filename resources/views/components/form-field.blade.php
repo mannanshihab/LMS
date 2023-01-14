@@ -4,7 +4,7 @@
     @if ($type === 'textarea')
         <textarea wire:model.lazy="{{ $name }}" id="{{ $name }}" placeholder="{{ $placeholder }}" class="lms-input" {{ $required }}></textarea>
     @else 
-        <input wire:model.lazy="{{ $name }}" id="{{ $name }}" type="text" 
+        <input  wire:model.lazy="{{ $name }}" id="{{ $name }}" type="{{ $type }}" 
         placeholder="{{ $placeholder }}" class="lms-input" {{ $required }}>
     @endif
    
