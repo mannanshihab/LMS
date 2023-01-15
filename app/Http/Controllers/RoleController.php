@@ -62,7 +62,9 @@ class RoleController extends Controller
     {
         permission_cheak('user_management');
         
-        return view('user.role.edit');
+        return view('user.role.edit', [
+            'roleId' => $id
+        ]);
     }
 
     /**
