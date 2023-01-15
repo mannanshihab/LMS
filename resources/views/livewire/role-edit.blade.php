@@ -26,6 +26,6 @@
     <div class="text-red-600 text-sm mt-2 px-4 mb-4">{{ $message }}</div>
     @enderror
     <button>
-       @include('components.wire-loading-btn')
+       @include('components.wire-loading-update-btn')
     </button>
 </form>

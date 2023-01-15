@@ -21,9 +21,9 @@
             <td class="border px-4 py-2">
                 <div class="flex items-center justify-center gap-4">
                     @if($student->is_present($curriculum->id))
-                        Presented
+                        @include('components.icons.check')
                     @else
-                        <button wire:click="attendance({{$student->id}})" class="py-2 px-3 bg-green-500 text-white">Present</button>
+                        <button wire:click="attendance({{$student->id}})" class="py-2 px-3 bg-green-500 text-white rounded-lg">Present</button>
                     @endif
                 </div>
             </td>

@@ -63,6 +63,6 @@
     </div>
  
     <div class="mb-6">
-        @include('components.wire-loading-btn')
+        @include('components.wire-loading-update-btn')
     </div>
 </form>
