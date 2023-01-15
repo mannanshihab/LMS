@@ -20,7 +20,7 @@
                         @include('components.icons.edit')
                     </a>
 
-                    <a class="mr-1" href="">
+                    <a class="mr-1" href="{{route('class.show', $class->id)}}">
                         @include('components.icons.view')
                     </a>
 
