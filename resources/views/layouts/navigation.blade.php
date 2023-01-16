@@ -24,7 +24,14 @@
                     <x-nav-link :href="route('course.index')" :active="request()->routeIs('course.index')">
                         {{ __('Course') }}
                     </x-nav-link>
-                    
+                    <!-- part-14 -->
+                    <x-nav-link :href="route('quiz.index')" :active="request()->routeIs('quiz.index')">
+                        {{ __('Quiz') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('question.index')" :active="request()->routeIs('question.index')">
+                        {{ __('Question') }}
+                    </x-nav-link>
+                    <!--/end part-14 -->
                     @can('lead-permission')
                     <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead.index')">
                         {{ __('Lead') }}
