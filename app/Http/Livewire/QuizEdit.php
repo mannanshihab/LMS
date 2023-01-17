@@ -11,13 +11,15 @@ class QuizEdit extends Component
 
     public function render()
     {
-        return view('livewire.quiz-edit',[
+        return view('livewire.quiz-edit', [
             'questions' => Question::select(['id','name'])->get(),
         ]);
     }
 
     public function addQuestion(){
-        $this->quiz->questions()->attach($this->question_id);
-        $this->question_id = '';
+        $this->quiz->questions() ->attach($this->question_id);
+        $this-> question_id = '';
+
+        flash()->addSuccess('ADD Successfully');
     }
 }

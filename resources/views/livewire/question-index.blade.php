@@ -3,7 +3,7 @@
     <div class="m-3 bg-gray-100 rounded p-3">
         <div class="flex">
             <h2 class="text-black">
-                <span>{{ $question -> id }} .</span>  {{  $question -> name }}
+                <span>({{ $question -> id }}).</span>  {{  $question -> name }}
             </h2>
             <p class="flex ml-10">
                 <a href="{{ route('question.edit', $question->id) }}">
@@ -25,7 +25,7 @@
             <span class="m-5">d) {{  $question -> answer_d }}</span>
         </div>
         <p class="text-black">
-            Correct Answer : <span class="text-green-700 bold"> 
+            Correct Answer : <span class="text-green-700 bold text-2xl"> 
                 {{  $question -> correct_answer }}
             </span> 
         </p>

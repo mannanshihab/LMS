@@ -26,7 +26,10 @@ class LeadController extends Controller
      */
     public function create()
     {
-        //
+        permission_cheak('lead-permission');
+        
+        return view('lead.create');
+
     }
 
     /**
