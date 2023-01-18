@@ -46,4 +46,12 @@ class CurriculumShow extends Component
 
         flash()->addSuccess('Attendance added successfully!');
     }
+    public function noteDelete($id) {
+        
+        $note = Note::findOrFail($id);
+        $note->delete();
+
+        flash()->addSuccess('Note deleted successfully');
+        
+    }
 }

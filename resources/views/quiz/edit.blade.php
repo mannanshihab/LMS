@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Question Edit') }}
             </h2>
-            <a href="{{ route('course.index')}}" class="lms-btn">Back</a>
+            <a href="{{ route('quiz.index')}}" class="lms-btn">Back</a>
         </div>
     </x-slot>
 

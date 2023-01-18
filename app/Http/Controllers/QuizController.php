@@ -15,12 +15,18 @@ class QuizController extends Controller
             'name' => $request->name,
         ]);
         
-        return redirect()->route('quiz.show', $quiz->id);
+        return redirect()->route('quiz.index');
     }
 
     public function show(Quiz $quiz){
         return view('quiz.show', [
             "quiz" => $quiz,
+        ]);
+    }
+    public function quizShow($id){
+        $quiz = Quiz::findOrFail($id);
+        return view('quiz.quiz-show', [
+            'quiz' => $quiz,
         ]);
     }
 }

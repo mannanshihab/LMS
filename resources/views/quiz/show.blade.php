@@ -4,9 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Quiz') }}
             </h2>
-            <a href="" class="lms-btn">
-                pending
-            </a>
+            <a href="{{ route('quiz.index')}}" class="lms-btn">Back</a>
         </div>  
     </x-slot>
 

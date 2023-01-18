@@ -35,20 +35,29 @@
     <h3 class="font-bold text-lg my-4">Notes</h3>
         @if (count($notes)>0)
             @foreach($notes as $note)
-            <div class="mb-4 border border-gray-100 p-4">{{$note->description}}</div>
+            <div class="flex justify-between mb-4 border border-gray-100 p-4">
+            {{$note->description}}
+            <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="noteDelete({{$note->id}})">
+                <button type="submit">
+                    @include('components.icons.trash')
+                </button>
+            </form>
+        </div>
             @endforeach
         @else
             <p class="py-4 text-red-400">Not Found Any Note!</p>
         @endif
 
     <h4 class="font-bold mb-2">Add new note</h4>
-    
+ 
     <form wire:submit.prevent="addNote">
         <div class="mb-4">
             <textarea wire:model="note" class="lms-input" placeholder="Type note"></textarea>
         </div>
         <button class="lms-btn" type="submit">Save</button>
     </form>
+ 
+    
 
    
 </div>

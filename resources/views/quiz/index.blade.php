@@ -4,8 +4,8 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Quiz') }}
             </h2>
-            <a href="" class="lms-btn">
-                pending
+            <a href="{{ route('question.create')}}" class="lms-btn">
+                Add Question
             </a>
         </div>  
     </x-slot>
@@ -23,7 +23,12 @@
                         <button type="submit" class="lms-btn mt-3">Add</button>
                     </form>
                 </div>
+                <div class="mt-5">
+                    <livewire:quiz-index />
+                </div>
             </div>
+            
         </div>
     </div>
+   
 </x-app-layout>
