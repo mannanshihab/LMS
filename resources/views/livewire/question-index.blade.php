@@ -9,10 +9,9 @@
                 <a href="{{ route('question.edit', $question->id) }}">
                     @include('components.icons.edit')
                 </a>
-                <form onsubmit="return confirm('Are you sure?');"
-                    wire:submit.prevent="questionDelete({{ $question->id }})">
-                    <button type="submit" class="ml-5">
-                    @include('components.icons.trash')
+                <form wire:submit.prevent="questionDelete({{ $question->id }})">
+                    <button onclick="return confirm('Are you sure?');" type="submit" > 
+                        @include('components.icons.trash')
                     </button>
                 </form>
             </p>

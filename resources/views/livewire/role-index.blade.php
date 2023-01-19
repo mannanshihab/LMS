@@ -17,8 +17,8 @@
                 <a href="{{route('role.edit', $role->id)}}" >
                     @include('components.icons.edit')
                 </a>
-                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="roleDelete({{$role->id}})">
-                    <button type="submit">
+                <form class="ml-1" wire:submit.prevent="roleDelete({{$role->id}})">
+                    <button onclick="return confirm('Are you sure?');" type="submit" > 
                         @include('components.icons.trash')
                     </button>
                 </form>

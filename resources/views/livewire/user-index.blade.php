@@ -20,9 +20,9 @@
                 <a href="{{route('user.show', $user->id)}}" class="px-4">
                     @include('components.icons.view')
                 </a>
-                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="userDelete({{$user->id}})">
-                    <button type="submit">
-                        @include('components.icons.trash')
+                <form class="ml-1" wire:submit.prevent="userDelete({{$user->id}})">
+                    <button onclick="return confirm('Are you sure?');" type="submit" > 
+                            @include('components.icons.trash')
                     </button>
                 </form>
             </td> 

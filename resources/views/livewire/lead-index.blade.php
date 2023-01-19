@@ -20,8 +20,8 @@
                 <a href="{{route('lead.show', $lead->id)}}" class="px-4">
                     @include('components.icons.view')
                 </a>
-                <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="leadDelete({{$lead->id}})">
-                    <button type="submit">
+                <form class="ml-1" wire:submit.prevent="leadDelete({{$lead->id}})">
+                    <button onclick="return confirm('Are you sure?');" type="submit" > 
                         @include('components.icons.trash')
                     </button>
                 </form>

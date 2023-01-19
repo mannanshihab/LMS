@@ -29,10 +29,9 @@
                         @include('components.icons.view')
                     </a>
 
-                    <form onsubmit="return confirm('Are you sure?');"
-                        wire:submit.prevent="courseDelete({{ $course->id }})">
-                        <button type="submit">
-                        @include('components.icons.trash')
+                    <form wire:submit.prevent="courseDelete({{ $course->id }})">
+                        <button onclick="return confirm('Are you sure?');" type="submit" > 
+                            @include('components.icons.trash')
                         </button>
                     </form>
                 </div>
