@@ -24,8 +24,10 @@
                     <a href="{{route('invoice-show', $invoice->id)}}" class="px-4">
                         @include('components.icons.view')
                     </a>
-                    <form class="ml-1" onsubmit="return confirm('Are you sure?');" wire:submit.prevent="leadDelete({{$invoice->id}})">
-                        <button type="submit">
+                    
+                    <form class="ml-1" 
+                          wire:submit.prevent="leadDelete({{$invoice->id}})">
+                        <button onclick="return confirm('Are you sure?');"  type="submit">
                             @include('components.icons.trash')
                         </button>
                     </form>
