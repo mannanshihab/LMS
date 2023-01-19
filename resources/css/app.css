@@ -13,3 +13,9 @@
 .lms-btn {
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded;
 }
+.lms-btn-2 {
+    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-2 rounded;
+}
+.cancel-btn{
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded;
+}
