@@ -26,7 +26,7 @@
                     </a>
                     
                     <form class="ml-1" 
-                          wire:submit.prevent="leadDelete({{$invoice->id}})">
+                          wire:submit.prevent="InvoiceDelete({{$invoice->id}})">
                         <button onclick="return confirm('Are you sure?');"  type="submit">
                             @include('components.icons.trash')
                         </button>

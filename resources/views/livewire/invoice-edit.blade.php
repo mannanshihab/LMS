@@ -17,7 +17,7 @@
         @foreach ($invoice->items as $item)
         <tr>
             <td class="border px-4 py-2 text-left">{{$item->name}}</td>
-            <td class="border px-4 py-2 text-center">${{number_format($item->price, 2)}}</td>
+            <td class="border text-right">${{number_format($item->price, 2)}}</td>
             <td class="border px-4 py-2  text-center">{{$item->quantity}}</td>
             <td class="border px-4 py-2 text-right">$
                {{number_format($item->price * $item->quantity, 2)}}
@@ -39,6 +39,18 @@
             </td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="3" class="border text-center">Subtotal</td>
+            <td class="border text-right">${{number_format($invoice->amount()['total'], 2)}}</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="border text-center">Paid</td>
+            <td class="border text-right">- ${{number_format($invoice->amount()['paid'], 2)}}</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="border text-center">Due</td>
+            <td class="border text-right">${{number_format($invoice->amount()['due'], 2)}}</td>
+        </tr>
   </table>
   
   
@@ -82,4 +94,16 @@
   <button wire:click="addNewItem"  class="mt-4 mb-4 lms-btn-2">Add New</button>
   @endif
   
+  <h3 class="font-bold text-lg mb-2">Payments</h3>
+    <ul class="mb-4">
+        @foreach($invoice->payments as $payment)
+        <li class="flex justify-between border bg-gray-200">
+          <span class="m-3">
+          {{date('F j, Y - g:i:a', strtotime($payment->created_at))}} - ${{number_format($payment->amount, 2)}} - transaction ID: {{$payment->transaction_id}} 
+          </span>
+          <button wire:click="refund({{$payment->id}})" class="text-xs cancel-btn m-2">Refund</button>
+        </li>
+       
+        @endforeach
+    </ul>
 </div>
