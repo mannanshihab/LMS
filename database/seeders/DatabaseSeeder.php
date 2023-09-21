@@ -26,8 +26,6 @@ class DatabaseSeeder extends Seeder
         foreach($defaultPermission as $permission){
             Permission::create(['name' => $permission]);
         }
-      
-
         $this->create_user_with_role('Super Admin', 'Super Admin', 'super-admin@lms.test');
         $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
@@ -60,7 +58,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => $name,
             'email' => $email,
-            'password' => bcrypt('password')
+            'password' => bcrypt('password22')
         ]);
 
         if($type == 'Super Admin') {

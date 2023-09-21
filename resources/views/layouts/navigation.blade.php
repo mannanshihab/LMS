@@ -111,6 +111,29 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admission')">
+                    {{ __('addmission') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('invoice-index')">
+                    {{ __('Invoice') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('course.index')">
+                        {{ __('Course') }}
+                </x-responsive-nav-link>
+                <!-- part-14 -->
+                <x-responsive-nav-link :href="route('quiz.index')">
+                    {{ __('Quiz') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('question.index')">
+                    {{ __('Question') }}
+                </x-responsive-nav-link>
+                <!--/end part-14 -->
+                @can('lead-permission')
+                <x-responsive-nav-link :href="route('lead.index')">
+                    {{ __('Lead') }}
+                </x-responsive-nav-link>
+                @endcan
+
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
